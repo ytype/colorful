@@ -28,12 +28,10 @@ export default {
   },
   methods: {
     addColor () {
-      this.color.push({ value: '' })
+      this.color.push({})
     },
     submit () {
-      // eslint-disable-next-line no-console
-      console.log(this.color)
-      axios.post('/api/color', {
+      axios.post('/api/test/formInput', {
         color: this.color
       })
         .then((response) => {
