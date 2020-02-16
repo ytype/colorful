@@ -3,7 +3,8 @@
     <h1>Add color</h1>
     <p>color</p>
     <div v-for="(find, index) in color" :key="index">
-      <input v-model="find.value" :key="index">
+      <input v-model="find.value.hex" :key="index">
+      <chrome-picker v-model="color[index].value" />
     </div>
     <button @click="addColor">
       add
@@ -16,21 +17,29 @@
 </template>
 
 <script>
+import { Chrome } from 'vue-color'
 import axios from 'axios'
 export default {
+  components: {
+    'chrome-picker': Chrome
+  },
   data () {
     return {
       color: [],
+      vision: [],
       result: ''
+
     }
   },
   computed: {
   },
   methods: {
     addColor () {
-      this.color.push({})
+      this.color.push({ value: '' })
+      this.color.push(0)
     },
     submit () {
+      console.log(this.color)
       axios.post('/api/test/formInput', {
         color: this.color
       })

@@ -32,7 +32,7 @@ router.post('/formInput', function (req, res) {
   const formColor = req.body.color
   const color = []
   for (const prop in formColor) {
-    color.push(formColor[prop].value)
+    color.push(formColor[prop].value.hex)
   }
   console.log(color)
 })
