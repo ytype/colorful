@@ -3,8 +3,8 @@
     <h1>Add color</h1>
     <p>color</p>
     <div v-for="(find, index) in color" :key="index">
-      <input v-model="find.value.hex" :key="index">
-      <chrome-picker v-model="color[index].value" />
+      <input @click="selected = index" v-model="find.value.hex" :key="index">
+      <chrome-picker v-if="index == selected" v-model="color[index].value" />
     </div>
     <button @click="addColor">
       add
@@ -26,9 +26,8 @@ export default {
   data () {
     return {
       color: [],
-      vision: [],
-      result: ''
-
+      result: '',
+      selected: 0
     }
   },
   computed: {
@@ -36,10 +35,9 @@ export default {
   methods: {
     addColor () {
       this.color.push({ value: '' })
-      this.color.push(0)
     },
     submit () {
-      console.log(this.color)
+      console.log(this.color.hex)
       axios.post('/api/test/formInput', {
         color: this.color
       })
