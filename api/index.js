@@ -13,7 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 mongoose.Promise = global.Promise
-
 mongoose.connect(process.env.MONGO_URI)
   // eslint-disable-next-line no-console
   .then(() => console.log('Successfully connected to mongodb'))

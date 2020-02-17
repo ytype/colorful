@@ -12,7 +12,11 @@
     <button @click="submit">
       submit
     </button>
+    <button @click.prevent="onLogout">
+      logout
+    </button>
     {{ result }}
+    {{ this.$store.getters.user }}
   </div>
 </template>
 
@@ -32,14 +36,25 @@ export default {
   },
   computed: {
   },
+  created () {
+    // eslint-disable-next-line eqeqeq
+    if (this.$store.getters.user == null && this.$store.getters.user == undefined) {
+      alert('plz login')
+      this.$router.push('/signin')
+    }
+  },
   methods: {
+    onLogout () {
+      this.$store.dispatch('logout')
+    },
     addColor () {
       this.color.push({ value: '' })
     },
     submit () {
       console.log(this.color.hex)
       axios.post('/api/test/formInput', {
-        color: this.color
+        color: this.color,
+        user: this.$store.getters.user.email
       })
         .then((response) => {
           this.result = response.data

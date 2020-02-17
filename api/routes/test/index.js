@@ -30,11 +30,23 @@ router.post('/testv', function (req, res) {
 
 router.post('/formInput', function (req, res) {
   const formColor = req.body.color
-  const color = []
+  const inputColor = []
   for (const prop in formColor) {
-    color.push(formColor[prop].value.hex)
+    inputColor.push(formColor[prop].value.hex)
   }
-  console.log(color)
+  const color = new Color({
+    color: inputColor,
+    user: req.body.user,
+    like: 0
+  })
+  color.save()
+    .then((savedColor) => {
+      res.send(savedColor)
+    })
+    .catch((error) => {
+      res.send('ERROR')
+      console.log(error)
+    })
 })
 
 module.exports = router
