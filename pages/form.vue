@@ -2,6 +2,7 @@
   <div>
     <h1>Add color</h1>
     <p>color</p>
+    <span v-for="(find, index) in color" :key="index" :style="{ backgroundColor: find.value.hex }" class="dot" />
     <div v-for="(find, index) in color" :key="index">
       <input @click="selected = index" v-model="find.value.hex" :key="index">
       <chrome-picker v-if="index == selected" v-model="color[index].value" />
@@ -68,5 +69,13 @@ export default {
 }
 </script>
 <style scoped>
-
+.dot-container {
+  white-space: nowrap;
+}
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
 </style>
