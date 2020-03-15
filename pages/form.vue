@@ -35,9 +35,7 @@ export default {
       selected: 0
     }
   },
-  computed: {
-  },
-  created () {
+  mounted () {
     // eslint-disable-next-line eqeqeq
     if (this.$store.getters.user == null && this.$store.getters.user == undefined) {
       alert('plz login')
@@ -47,6 +45,7 @@ export default {
   methods: {
     onLogout () {
       this.$store.dispatch('logout')
+      location.reload()
     },
     addColor () {
       this.color.push({ value: '' })
