@@ -41,7 +41,7 @@ router.post('/formInput', function (req, res) {
   })
   color.save()
     .then((savedColor) => {
-      res.send(savedColor)
+      res.status(200).send(200)
     })
     .catch((error) => {
       res.send('ERROR')

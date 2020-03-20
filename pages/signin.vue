@@ -102,7 +102,6 @@ export default {
   border: 0px none rgb(255, 255, 255);
   margin: 0.8rem 0 0 0;
   color: white;
-
 }
 .login-text {
   font-family: 'Noto Sans KR', sans-serif;
