@@ -21,6 +21,29 @@
         </div>
       </div>
     </section>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title description-main">
+            Feature
+          </h1>
+          <div class="columns">
+            <div class="column feature-description">
+              좋아요 순 정렬
+              <img class="feature-img" src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/199_Like_logo_logos-512.png">
+            </div>
+            <div class="column feature-description">
+              비슷한 색상 추천
+              <img class="feature-img" src="https://cdn2.iconfinder.com/data/icons/ourea-icons/256/palette_256x256-32.png">
+            </div>
+            <div class="column feature-description">
+              코멘트 달기
+              <img class="feature-img" src="https://cdn4.iconfinder.com/data/icons/core-ui-outlined/32/outlined_comment-512.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -58,5 +81,18 @@
 .description {
   font-family: 'Noto Sans KR', sans-serif;
   padding: 2rem 0 0 0;
+  text-align: center;
+}
+.feature-description {
+  font-size: 1.25rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 2rem 0 0 0;
+  text-align: center;
+  text-align: -webkit-center;
+}
+.feature-img{
+  display: block;
+  height: auto;
+  max-width: 10rem;
 }
 </style>

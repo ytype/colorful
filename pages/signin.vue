@@ -1,26 +1,37 @@
 <template>
-  <div>
-    <p>user: {{ user }}</p>
-    <p>error: {{ error }}</p>
-    <p>loading: {{ loading }}</p>
-    <form @submit.prevent="onSignin">
+  <div class="has-text-centered">
+    <h1 class="description-main">
+      Colorful
+    </h1>
+    <p class="login-text">
+      {{ error }}
+    </p>
+    <form @submit.prevent="onSignin" class="login-form">
+      <h2 class="login-text">
+        ID:
+      </h2>
       <input
         id="email"
         v-model="email"
+        class="input login-input"
         name="email"
         label="Email"
         type="email"
         required
       >
+      <h2 class="login-text">
+        PW:
+      </h2>
       <input
         id="password"
         v-model="password"
+        class="input login-input"
         name="password"
         label="Password"
         type="password"
         required
       >
-      <button :disabled="loading" :loading="loading" type="submit">
+      <button :disabled="loading" :loading="loading" type="submit" class="login-btn">
         Sign in
       </button>
       <button id="Google" @click.prevent="onSigninGoogle">
@@ -81,7 +92,37 @@ export default {
 </script>
 
 <style scope>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+.login-btn {
+  border-radius: 8px 8px 8px 8px;
+  height: 64px;
+  width: 233.859px;
+  background:rgb(238,156,167);
+  font-family: 'Noto Sans KR', sans-serif;
+  border: 0px none rgb(255, 255, 255);
+  margin: 0.8rem 0 0 0;
+  color: white;
+
+}
+.login-text {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.login-form {
+  text-align: -webkit-center;
+  padding: 1.5rem 0 0 0;
+}
+.login-input {
+  display: block;
+  width: 15rem;
+  height: 70%;
+}
+.description-main {
+  font-size: 2rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 2rem;
+}
 #Google {
+  display: block;
     background-position: 16px 50%;
     color: rgb(255, 255, 255);
     cursor: pointer;
@@ -125,6 +166,7 @@ export default {
 }/*#BUTTON_1:before*/
 
 #Github {
+  display: block;
     background-position: 16px 50%;
     color: rgb(255, 255, 255);
     cursor: pointer;
