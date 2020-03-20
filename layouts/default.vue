@@ -1,14 +1,17 @@
 <template>
   <div>
+    <navbar title="colorful" />
     <nuxt />
   </div>
 </template>
 
 <script>
+import navbar from '@/components/navbar'
 import * as firebase from 'firebase'
+
 export default {
   components: {
-
+    navbar
   },
   created () {
     try {

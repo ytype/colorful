@@ -1,72 +1,62 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        colorful
-      </h1>
-      <h2 class="subtitle">
-        My outstanding Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <section class="hero hero-main">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title corlorful">
+            Color Palette For Web Developers
+          </h1>
+        </div>
       </div>
-    </div>
+    </section>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title description-main">
+            Colorful은
+          </h1>
+          <h2 class="subtitle description">
+            개발자들을 위한 색상 팔레트입니다.
+          </h2>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
-<script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
+<style scope>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+@keyframes hero-animation {
+  0% {
+  background: rgb(253,175,173);
+  background: linear-gradient(90deg, rgba(253,175,173,1) 0%, rgba(250,202,192,1) 100%);
+  }
+  50% {
+  background: rgb(255,236,210);
+  background: linear-gradient(90deg, rgba(255,236,210,1) 0%, rgba(252,182,159,1) 100%);
+  }
+  100% {
+    background: rgb(238,156,167);
+    background: linear-gradient(90deg, rgba(238,156,167,1) 0%, rgba(255,221,225,1) 100%);
   }
 }
-</script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.hero-main {
+  animation: hero-animation 30s infinite;
+  height: 30rem;
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.corlorful {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  margin: 11rem 0 0 0;
+  color: white;
 }
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.description-main {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 2rem;
 }
-
-.links {
-  padding-top: 15px;
+.description {
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 2rem 0 0 0;
 }
 </style>
