@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>Add color</h1>
-    <p>color</p>
     <span v-for="(find, index) in color" :key="index" :style="{ backgroundColor: find.value.hex }" class="dot" />
     <div v-for="(find, index) in color" :key="index">
       <input @click="selected = index" v-model="find.value.hex" :key="index">
@@ -16,8 +14,6 @@
     <button @click.prevent="onLogout">
       logout
     </button>
-    {{ result }}
-    {{ this.$store.getters.user }}
   </div>
 </template>
 
@@ -38,7 +34,8 @@ export default {
   mounted () {
     // eslint-disable-next-line eqeqeq
     if (this.$store.getters.user == null && this.$store.getters.user == undefined) {
-      alert('plz login')
+      console.log(this.$store.getters.user)
+      alert(this.$store.getters.user)
       this.$router.push('/signin')
     }
   },

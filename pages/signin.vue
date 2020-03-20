@@ -123,6 +123,7 @@ export default {
 }
 #Google {
   display: block;
+  font-family: 'Noto Sans KR', sans-serif;
     background-position: 16px 50%;
     color: rgb(255, 255, 255);
     cursor: pointer;
@@ -136,7 +137,6 @@ export default {
     background: rgb(221, 75, 57) url("http://vagnervjs.github.io/social-signin-btns/img/google.svg") no-repeat scroll 16px 50% / 32px padding-box border-box;
     border: 0px none rgb(255, 255, 255);
     border-radius: 8px 8px 8px 8px;
-    font: normal normal 400 normal 16px / 16px Arial;
     margin: 6px;
     outline: rgb(255, 255, 255) none 0px;
     padding: 0px 32px 0px 64px;
@@ -167,6 +167,7 @@ export default {
 
 #Github {
   display: block;
+  font-family: 'Noto Sans KR', sans-serif;
     background-position: 16px 50%;
     color: rgb(255, 255, 255);
     cursor: pointer;
@@ -180,7 +181,6 @@ export default {
     background: rgb(42, 42, 42) url("http://vagnervjs.github.io/social-signin-btns/img/github.svg") no-repeat scroll 16px 50% / 32px padding-box border-box;
     border: 0px none rgb(255, 255, 255);
     border-radius: 8px 8px 8px 8px;
-    font: normal normal 400 normal 16px / 16px Arial;
     margin: 6px;
     outline: rgb(255, 255, 255) none 0px;
     padding: 0px 32px 0px 64px;
