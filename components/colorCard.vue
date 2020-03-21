@@ -8,12 +8,12 @@
         <div class="media">
           <div class="media-left" />
           <div class="media-content">
-            <p class="title is-4">
+            <a :href="'color/'+data._id"><p class="title is-4">
               {{ data._id }}
-            </p>
+            </p></a>
             <p class="subtitle is-6">
               {{ data.user }}
-              {{ data.like }}
+              {{ data.like.length }}
             </p>
           </div>
         </div>

@@ -54,7 +54,7 @@ export default {
       this.color.push({ value: '' })
     },
     submit () {
-      axios.post('/api/test/formInput', {
+      axios.post('http://127.0.0.1:3000/api/test/formInput', {
         color: this.color,
         user: this.$store.getters.user.email
       })

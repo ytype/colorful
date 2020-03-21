@@ -35,11 +35,12 @@ router.post('/formInput', function (req, res) {
   for (const prop in formColor) {
     inputColor.push(formColor[prop].value.hex)
   }
+
   const color = new Color({
     color: inputColor,
-    user: req.body.user,
-    like: 0
+    user: req.body.user
   })
+  console.log(color)
   color.save()
     .then((savedColor) => {
       res.status(200).send(200)
