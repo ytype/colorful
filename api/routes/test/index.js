@@ -18,7 +18,8 @@ router.post('/test', function (req, res) {
 })
 
 router.post('/testv', function (req, res) {
-  Color.find({})
+  // .skip(where).limit(add)
+  Color.find({}).sort({ like: 'desc' })
     .then((savedColor) => {
       res.send(savedColor)
     })

@@ -36,8 +36,7 @@ export default {
     return {
       color: [],
       result: '',
-      selected: 0
-    }
+      selected: 0 }
   },
   mounted () {
     // eslint-disable-next-line eqeqeq
