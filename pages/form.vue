@@ -7,6 +7,11 @@
       <span v-for="(find, index) in color" :key="index" :style="{ backgroundColor: find.value.hex }" class="dot" />
     </div>
     <div class="form-color">
+      <h2>title</h2>
+      <input v-model="title" class="input form-input">
+    </div>
+    <div class="form-color">
+      <h2>colors</h2>
       <div v-for="(find, index) in color" :key="index">
         <input @click="selected = index" v-model="find.value.hex" :key="index" class="input form-input">
         <chrome-picker v-if="index == selected" v-model="color[index].value" />
@@ -16,9 +21,6 @@
       </button>
       <button @click="submit" class="button">
         submit
-      </button>
-      <button @click.prevent="onLogout" class="button">
-        logout
       </button>
     </div>
     {{ result }}
@@ -35,6 +37,7 @@ export default {
   data () {
     return {
       color: [],
+      title: '',
       result: '',
       selected: 0 }
   },
@@ -46,29 +49,30 @@ export default {
     }
   },
   methods: {
-    onLogout () {
-      this.$store.dispatch('logout')
-      location.reload()
-    },
     addColor () {
       this.color.push({ value: '' })
     },
     submit () {
-      axios.post('http://127.0.0.1:3000/api/test/formInput', {
-        color: this.color,
-        user: this.$store.getters.user.email
-      })
-        .then((response) => {
-          this.result = response.data
-          if (response.data === 'OK') {
-            alert('업로드 성공')
-            this.$router.push('/color')
-          }
+      if (this.title === '') {
+        alert('제목을 입력해주세요.')
+      } else {
+        axios.post('http://127.0.0.1:3000/api/test/formInput', {
+          color: this.color,
+          title: this.title,
+          user: this.$store.getters.user.email
         })
-        .catch((e) => {
+          .then((response) => {
+            this.result = response.data
+            if (response.data === 'OK') {
+              alert('업로드 성공')
+              this.$router.push('/color')
+            }
+          })
+          .catch((e) => {
           // eslint-disable-next-line no-console
-          console.log(e)
-        })
+            console.log(e)
+          })
+      }
     }
   }
 }

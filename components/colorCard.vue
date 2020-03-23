@@ -9,7 +9,7 @@
           <div class="media-left" />
           <div class="media-content">
             <a :href="'color/'+data._id"><p class="title is-4">
-              {{ data._id }}
+              {{ data.title }}
             </p></a>
             <p class="subtitle is-6">
               {{ data.user }}

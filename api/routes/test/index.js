@@ -30,6 +30,7 @@ router.post('/testv', function (req, res) {
 })
 
 router.post('/formInput', function (req, res) {
+  console.log(req.body)
   const formColor = req.body.color
   const inputColor = []
   for (const prop in formColor) {
@@ -38,7 +39,8 @@ router.post('/formInput', function (req, res) {
 
   const color = new Color({
     color: inputColor,
-    user: req.body.user
+    user: req.body.user,
+    title: req.body.title
   })
   console.log(color)
   color.save()
