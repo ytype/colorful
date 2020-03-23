@@ -1,4 +1,4 @@
-const Color = require('../../models/Color')
+const Color = require('../../models/color')
 const router = require('express').Router()
 
 router.post('/test', function (req, res) {

@@ -1,6 +1,9 @@
 
 module.exports = {
   mode: 'spa',
+  env: {
+    MONGO_URI: process.env.MONGO_URI
+  },
   /*
   ** Headers of the page
   */

@@ -25,7 +25,7 @@ export default {
   methods: {
     fetchData () {
       // axios.post('http://127.0.0.1:3000/api/test/testv/')
-      axios.post('http://127.0.0.1:3000/api/color', {
+      axios.post('/api/color', {
         params: {
           id: 'all'
         }

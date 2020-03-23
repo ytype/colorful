@@ -56,7 +56,7 @@ export default {
       if (this.title === '') {
         alert('제목을 입력해주세요.')
       } else {
-        axios.post('http://127.0.0.1:3000/api/test/formInput', {
+        axios.post('/api/test/formInput', {
           color: this.color,
           title: this.title,
           user: this.$store.getters.user.email

@@ -56,7 +56,7 @@ export default {
       if (this.content === '') {
         alert('공백은 입력할 수 없습니다.')
       } else {
-        axios.post('http://127.0.0.1:3000/api/comment', {
+        axios.post('/api/comment', {
           params: {
             email: this.$store.getters.user.email,
             id: this.id,
@@ -73,7 +73,7 @@ export default {
       }
     },
     fetchData () {
-      axios.post('http://127.0.0.1:3000/api/color', {
+      axios.post('/api/color', {
         params: {
           id: this.id
         }
@@ -91,7 +91,7 @@ export default {
         })
     },
     addLike () {
-      axios.post('http://127.0.0.1:3000/api/like', {
+      axios.post('/api/like', {
         params: {
           id: this.id,
           email: this.$store.getters.user.email
@@ -106,7 +106,7 @@ export default {
       location.reload()
     },
     delLike () {
-      axios.post('http://127.0.0.1:3000/api/unlike', {
+      axios.post('/api/unlike', {
         params: {
           id: this.id,
           email: this.$store.getters.user.email
