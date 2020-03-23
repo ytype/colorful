@@ -12,30 +12,34 @@
     <div class="spans">
       <span v-for="(color, index) in data.color" :key="index" :style="{ backgroundColor: color }" class="dot" />
     </div>
-    {{ data.like }}
-    <button v-if="likeBtnShow" @click="addLike" class="button is-rounded">
-      좋아요
-    </button>
-    <button v-else @click="delLike" class="button is-rounded">
-      안 좋아요
-    </button>
-    <h2>댓글</h2>
-    <input v-model="content">
-    <div v-for="(comment,idx) in data.comments" v-bind:key="idx">
-      {{ comment }}
-      <button v-if="comment.user === $store.getters.user.email" @click="rmComment(idx)">
-        댓글 삭제
+    <div class="comment-form">
+      <h2 class="comment-text">
+        댓글
+      </h2>
+      <input v-model="content" class="input form-input comment-input">
+      <button @click="addComment" class="button is-rounded comment-input">
+        댓글 등록
       </button>
+      <button v-if="likeBtnShow" @click="addLike" class="button is-rounded comment-input">
+        좋아요
+      </button>
+      <button v-else @click="delLike" class="button is-rounded comment-input">
+        안 좋아요
+      </button>
+      <div v-for="(comment,idx) in data.comments" v-bind:key="idx">
+        <commentCard :data="comment" />
+      </div>
     </div>
-    <button @click="addComment" class="button is-rounded">
-      댓글 등록
-    </button>
   </div>
 </template>
 
 <script>
+import commentCard from '@/components/commentCard'
 import axios from 'axios'
 export default {
+  components: {
+    commentCard
+  },
   data () {
     return {
       id: this.$route.params.id,
@@ -67,16 +71,6 @@ export default {
           })
         location.reload()
       }
-    },
-    rmComment (idx) {
-      axios.delete('http://127.0.0.1:3000/api/comment/' + this.id + '/' + this.data.comments[idx]._id)
-        .then((response) => {
-          this.data = response.data
-        })
-        .catch((error) => {
-          console.log(error.response)
-        })
-      location.reload()
     },
     fetchData () {
       axios.post('http://127.0.0.1:3000/api/color', {
@@ -131,6 +125,7 @@ export default {
 </script>
 
 <style scope>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 @keyframes hero-animation {
   0% {
@@ -145,6 +140,9 @@ export default {
     background: rgb(238,156,167);
     background: linear-gradient(90deg, rgba(238,156,167,1) 0%, rgba(255,221,225,1) 100%);
   }
+}
+.comment-input {
+  display: inline-block;
 }
 .hero-main {
   animation: hero-animation 30s infinite;
@@ -172,5 +170,16 @@ export default {
   font-family: 'Dancing Script', cursive;
   margin: 11rem 0 0 0;
   color: white;
+}
+.form-input {
+  width: 25rem;
+  height: 2.5rem;
+}
+.comment-text {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.5rem;
+}
+.comment-form {
+  margin-left: 1rem;
 }
 </style>

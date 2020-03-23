@@ -15,8 +15,11 @@
         </div>
         <div id="navMenu" :class="{ 'is-active': showNav }" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item" href="/">
+            <a class="navbar-item" href="color">
               main
+            </a>
+            <a class="navbar-item" href="form">
+              form
             </a>
             <a v-if="user" class="navbar-item" href="signin">
               Login
